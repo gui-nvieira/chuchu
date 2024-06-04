@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuchu Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ece3c2;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #titulo{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function tratarTexto() {
+            document.getElementById("resultado").textContent = "";
+            const inputTexto = document.getElementById("inputTexto").value;
+            if (inputTexto.length < 1) return;
+            const palavras = inputTexto.split(" ");
+            const termos = ["neném", "chuchu", "chuchureja", "tinene", "tichuchu", "tibichinho", "chunene", "chuchu peidinho", "benzinho", "nene"];
+            let textoTratado = "";
+
+            for (const palavra of palavras) {
+                const randomIndex = Math.floor(Math.random() * termos.length);
+                const palavraTratada = termos[randomIndex];
+                textoTratado += palavraTratada + " ";
+            }
+
+            document.getElementById("resultado").textContent = textoTratado.trim();
+        }
+    </script>
+</head>
+<body>
+    <div id="titulo">Chuchu Translator</div>
+    <div class="container">
+        <input type="text" id="inputTexto" placeholder="Digite seu texto">
+        <button onclick="tratarTexto()">Tratar</button>
+        <div id="resultado"></div>
+    </div>
+</body>
+</html>
